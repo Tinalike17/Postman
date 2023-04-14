@@ -108,3 +108,18 @@ pm.test("Request response U_SALARY_1_5_YEAR check: ", \
 function(){ \
     pm.expect(resp_u_salary_1_5_year).to.equal(req_u_salary_1_5_year) \
 });
+
+|                        Task                                |                     
+| -------------------------------------------------------    | 
+| Запит 3: `http://162.55.220.72:5005/object_info_3`         |                                                
+|   1. Отправить запрос, cтатус код 200                      |
+|   2. Спарсить response body в json.|
+|   3. Спарсить request.|
+|   4. Проверить, что name в ответе равно name s request (name забрать из request.)|
+|   5. Проверить, что age в ответе равно age s request (age забрать из request.)|
+|   6. Проверить, что salary в ответе равно salary s request (salary забрать из request.)|
+|   7. Вывести в консоль параметр family из response.|
+|   8. Проверить, что у параметра dog есть параметры name.|
+|   9. Проверить, что у параметра dog есть параметры age.|
+|  10. Проверить, что параметр name имеет значение Luky. |
+|  11. Проверить, что параметр age имеет значение 4.     |
