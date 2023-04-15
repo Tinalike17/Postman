@@ -185,3 +185,102 @@ function(){ \
      function () {\
      pm.expect(dog_age).to.equal(4);\
      });
+     
+|                        Task                                |                     
+| -------------------------------------------------------    | 
+| Запит 4: `http://162.55.220.72:5005/object_info_4`         |                                                
+|   1. Отправить запрос, cтатус код 200                      |
+|   2. Спарсить response body в json.|
+|   3. Спарсить request.|
+|   4. Проверить, что name в ответе равно name s request (name забрать из request.)|
+|   5. Проверить, что age в ответе равно age s request (age забрать из request.)|
+|   6. Вывести в консоль параметр salary из request.|
+|   7. Вывести в консоль параметр salary из response.|
+|   8. Вывести в консоль 0-й элемент параметра salary из response.|
+|   9. Вывести в консоль 1-й элемент параметра salary параметр salary из response. |
+|  10. Вывести в консоль 2-й элемент параметра salary параметр salary из response.    |
+|  11. Проверить, что 0-й элемент параметра salary равен salary из request (salary забрать из request.)| 
+|  12. Проверить, что 1-й элемент параметра salary равен salary*2 из request (salary забрать из request.)| 
+|  13. Проверить, что 2-й элемент параметра salary равен salary*3 из request (salary забрать из request.)| 
+|  14. Создать в окружении переменную name| 
+|  15. Создать в окружении переменную age| 
+|  16. Создать в окружении переменную salary| 
+|  17. Передать в окружение переменную name| 
+|  18. Передать в окружение переменную age| 
+|  19. Передать в окружение переменную salary| 
+|  20. Написать цикл который выведет в консоль по порядку элементы списка из параметра salary.| 
+
+<h3 align="center"> Answer </h3> 
+
+1. `Status code is 200` \
+   pm.test("Status code is 200", function () { \
+   pm.response.to.have.status(200);\
+});
+
+2. `Parse response body into json`\
+    var resp_jsonData = pm.response.json();
+   
+3. `Parse request`\
+    var req_url = pm.request.url.query.toObject();
+    
+4. `Проверить, что name в ответе равно name s request (name забрать из request.)`\
+   var resp_name = resp_jsonData.name;\
+   pm.test("Response request NAME check"\,\
+   function(){\
+   pm.expect(req_url.name).to.equal(resp_name)\
+   });\
+
+5. `Проверить, что age в ответе равно age из request (age забрать из request.)`\
+`   pm.test("Request response AGE check", \
+    function(){\
+    pm.expect(+req_url.age).to.equal(resp_jsonData.age);\
+    });
+6. `Вывести в консоль параметр salary из request.`\
+    console.log(req_url.salary);
+
+7. `Вывести в консоль параметр salary из response.`\
+    console.log(resp_jsonData.salary);
+8. `Вывести в консоль 0-й элемент параметра salary из response.`\
+    console.log(resp_jsonData.salary[0]);
+9. `Вывести в консоль 1-й элемент параметра salary параметр salary из response.`\
+    console.log(resp_jsonData.salary[1]);\
+10. `Вывести в консоль 2-й элемент параметра salary параметр salary из response.`\
+     console.log(resp_jsonData.salary[2]);
+11. `Проверить, что 0-й элемент параметра salary равен salary из request (salary забрать из request.)`\
+    pm.test("Request response SALARY check", \
+    function(){\
+    pm.expect(+req_url.salary).to.equal(resp_jsonData.salary[0]);\
+    });
+12. `Проверить, что 1-й элемент параметра salary равен salary*2 из request (salary забрать из request.)`\
+     pm.test("Request response SALARY*2 to equal the first element of response salary array check", \
+     function(){ \
+     pm.expect(req_url.salary*2).to.equal(+resp_jsonData.salary[1]);\
+     });
+13. `Проверить, что 2-й элемент параметра salary равен salary*3 из request (salary забрать из request.)`\
+    pm.test("Request response SALARY*3 to equal the first element of response salary array check", \
+    function(){\
+    pm.expect(req_url.salary*3).to.equal(+resp_jsonData.salary[2]);\
+    });\
+14.  `Создать в окружении переменную name`\
+15.  `Создать в окружении переменную age`\
+16.  `Создать в окружении переменную salary`\ 
+| Variable         |          Current value |
+|   age               |                19   |
+|   name              |               Emma  |
+|  salary            |                200   |
+17.  `Передать в окружение переменную name`\
+      console.log(req_url.name);\
+      pm.environment.set("name", req_url.name);
+18   `Передать в окружение переменную age`\
+      console.log(req_url.age);\
+      pm.environment.set("age", req_url.age);
+19.  `Передать в окружение переменную salary`\
+      console.log(req_url.salary);\
+      pm.environment.set("salary",req_url.salary);
+20.  `Написать цикл который выведет в консоль по порядку элементы списка из параметра salary.`\
+      var resp_salary = resp_jsonData.salary;\
+      let count_el = "";\
+      for (let x in resp_salary) { \
+      count_el += resp_salary[x] + ' ';\
+      }\
+      console.log('Salary elements : ', count_el);
