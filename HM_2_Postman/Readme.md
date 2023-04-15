@@ -260,13 +260,13 @@ function(){ \
     pm.test("Request response SALARY*3 to equal the first element of response salary array check", \
     function(){\
     pm.expect(req_url.salary*3).to.equal(+resp_jsonData.salary[2]);\
-    });\
+    });
 14.  `Создать в окружении переменную name`
 15.  `Создать в окружении переменную age`
 16.  `Создать в окружении переменную salary`
 
 | Variable         |          Current value |
-| ---              |                    --- |
+| :---:              |                    :---: |
 |   age               |                19   |
 |   name              |               Emma  |
 |  salary            |                200   |
