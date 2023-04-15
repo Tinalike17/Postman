@@ -123,3 +123,65 @@ function(){ \
 |   9. Проверить, что у параметра dog есть параметры age.|
 |  10. Проверить, что параметр name имеет значение Luky. |
 |  11. Проверить, что параметр age имеет значение 4.     |
+
+<h3 align="center"> Answer </h3> 
+
+1. `Send a request`
+    pm.sendRequest("http://162.55.220.72:5005/object_info_3?name=Alyona&age=20&salary=300", function (err, response) {
+    console.log(response.json());
+});  
+   `Status code is 200` \
+   pm.test("Status code is 200", function () { \
+   pm.response.to.have.status(200);\
+});
+
+2. `Parse response body into json`\
+   var jsonData = pm.response.json();
+   
+3. `Parse request`\
+   var req = pm.request.url.query.toObject();
+   
+4. `Check that name in response equals to name in request (name take from request)`\
+   pm.test("Response request NAME check",\
+   function(){\
+    pm.expect(req.name).to.equal(jsonData_resp.name)\
+   });
+5. `Check that age in response equals to age in request (age take from request)`\
+   pm.test("Response request AGE check", \
+   function(){ \
+   pm.expect(req.age).to.equal(jsonData_resp.age)\
+   });  
+6. `Check that salary in response equals to salary in request (salary take from request)`\
+    var req_salary = +req.salary;\
+    pm.test("Response request SALARY check",\
+    function(){\
+    pm.expect(req_salary).to.equal(jsonData_resp.salary)\
+    });
+7. `Вивести в консоль параметр family from response`\
+    var resp_family =  JSON.stringify(jsonData_resp.family);\
+    console.log("Response family: " + resp_family);
+8.  `Перевірити що параметр dog має name`
+     var dog = jsonData_resp.family.pets.dog;\
+     console.log("Dog", dog);\
+     pm.test("Check that dog HAS NAME",\
+     function () {\
+     pm.expect(dog).to.have.property('name');\
+     });
+9.  `Перевірити що параметр dog має age`\
+     var dog = jsonData_resp.family.pets.dog;\
+     pm.test("Check that dog HAS AGE",\
+     function () {\
+     pm.expect(dog).to.have.property('age');\
+     });
+10. `Check that parameter name has value "Luky" `\
+     var dog_name = jsonData_resp.family.pets.dog\["name"\];\
+     pm.test("Check that dog HAS value Luky"\,\ 
+     function () {\
+     pm.expect(dog_name).to.equal('Luky');\
+     });
+11. `Check that parameter age has value "4"`\
+     var dog_age = jsonData_resp.family.pets.dog\["age"\];\
+     pm.test("Check that dog HAS value 4"\, \
+     function () {\
+     pm.expect(dog_age).to.equal(4);\
+     });
