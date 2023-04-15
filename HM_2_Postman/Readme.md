@@ -243,7 +243,7 @@ function(){ \
 8. `Вывести в консоль 0-й элемент параметра salary из response.`\
     console.log(resp_jsonData.salary[0]);
 9. `Вывести в консоль 1-й элемент параметра salary параметр salary из response.`\
-    console.log(resp_jsonData.salary[1]);\
+    console.log(resp_jsonData.salary[1]);
 10. `Вывести в консоль 2-й элемент параметра salary параметр salary из response.`\
      console.log(resp_jsonData.salary[2]);
 11. `Проверить, что 0-й элемент параметра salary равен salary из request (salary забрать из request.)`\
