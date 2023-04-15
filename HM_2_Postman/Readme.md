@@ -261,13 +261,16 @@ function(){ \
     function(){\
     pm.expect(req_url.salary*3).to.equal(+resp_jsonData.salary[2]);\
     });\
-14.  `Создать в окружении переменную name`\
-15.  `Создать в окружении переменную age`\
-16.  `Создать в окружении переменную salary`\ 
+14.  `Создать в окружении переменную name`
+15.  `Создать в окружении переменную age`
+16.  `Создать в окружении переменную salary`
+
 | Variable         |          Current value |
+| ---              |                    --- |
 |   age               |                19   |
 |   name              |               Emma  |
 |  salary            |                200   |
+
 17.  `Передать в окружение переменную name`\
       console.log(req_url.name);\
       pm.environment.set("name", req_url.name);
