@@ -126,8 +126,8 @@ function(){ \
 
 <h3 align="center"> Answer </h3> 
 
-1. `Send a request`
-    pm.sendRequest("http://162.55.220.72:5005/object_info_3?name=Alyona&age=20&salary=300", function (err, response) {
+1. `Send a request`\
+    pm.sendRequest("http://162.55.220.72:5005/object_info_3?name=Alyona&age=20&salary=300", function (err, response) {\
     console.log(response.json());
 });  
    `Status code is 200` \
@@ -160,7 +160,7 @@ function(){ \
 7. `Вивести в консоль параметр family from response`\
     var resp_family =  JSON.stringify(jsonData_resp.family);\
     console.log("Response family: " + resp_family);
-8.  `Перевірити що параметр dog має name`
+8.  `Перевірити що параметр dog має name`\
      var dog = jsonData_resp.family.pets.dog;\
      console.log("Dog", dog);\
      pm.test("Check that dog HAS NAME",\
@@ -174,8 +174,8 @@ function(){ \
      pm.expect(dog).to.have.property('age');\
      });
 10. `Check that parameter name has value "Luky" `\
-     var dog_name = jsonData_resp.family.pets.dog\["name"\];\
-     pm.test("Check that dog HAS value Luky"\,\ 
+     var dog_name = jsonData_resp.family.pets.dog\["name"\];
+     pm.test("Check that dog HAS value Luky"\,
      function () {\
      pm.expect(dog_name).to.equal('Luky');\
      });
