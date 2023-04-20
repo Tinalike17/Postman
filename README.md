@@ -14,6 +14,7 @@ For all methods this fields are the same: Protocol: `http`, IP: `162.55.220.72`,
 | - `name`: str | |
 | - `age`: int| |
 
+
 | EP_2 | Response |
 | --- | --- | 
 | 1. Method: `POST` | `{ 'age': age, 'salary': salary, 'family': {'children': [['Alex',24], ['Kate',12]], 'u_salary_1_5_year': salary * 4}}` | 
@@ -22,6 +23,7 @@ For all methods this fields are the same: Protocol: `http`, IP: `162.55.220.72`,
 | - `name`: str | | 
 | - `age`: int| | | 
 | - `salary`: int| | 
+
 
 
 
