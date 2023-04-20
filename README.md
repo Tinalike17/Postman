@@ -16,12 +16,9 @@ For all methods this fields are the same: Protocol: `http`, IP: `162.55.220.72`,
 
 | EP_2 | Response |
 | --- | --- | 
-| 1. Protocol: `http` | `{ 'age': age, 'salary': salary, 'family': {'children': [['Alex',24], ['Kate',12]], 'u_salary_1_5_year': salary * 4}}` | 
-| 2. IP: `162.55.220.72` | 
-| 3. Port: `5005` | 
-| 5. Method: `POST` ||
-| 6. EndPoint: `/user_info_3` | | 
-| 7. request url params: | |
+| 1. Method: `POST` | `{ 'age': age, 'salary': salary, 'family': {'children': [['Alex',24], ['Kate',12]], 'u_salary_1_5_year': salary * 4}}` | 
+| 2. EndPoint: `/user_info_3` | | 
+| 3. request url params: | |
 | - `name`: str | | 
 | - `age`: int| | | 
 | - `salary`: int| | 
