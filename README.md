@@ -55,8 +55,36 @@ For all methods this fields are the same: Protocol: `http`, IP: `162.55.220.72`,
 |                   | `}`                                                        |
 
 
+| EP_5 | Method: `GET`  |
+| --- | --- | 
+| Endpoint          |`/object_info_3`                                              |
+| Request URL Params| name: `str`                                                   |
+|                   |  age: `int`                                                    |
+|                   | salary: `int`                                                 |
+| Response          | `{ `                                                        |
+|                   | &nbsp;&nbsp;`'name': name,`         |
+|                   | &nbsp;&nbsp;`'age': age,`         |
+|                   | &nbsp;&nbsp;`'salary': salary,`|
+|                   | &nbsp;&nbsp;`'family': {'children': [['Alex', 24], ['Kate', 12]],`|
+|                   | &nbsp;&nbsp;` 'pets': {'cat':{'name':'Sunny',`|
+|                   | &nbsp;&nbsp;`  'age': 3},`|
+|                   | &nbsp;&nbsp;`      'dog':{'name':'Luky',`                          |
+|                   | &nbsp;&nbsp;&nbsp;`   'age': 4}},` |
+|                   | &nbsp;&nbsp;&nbsp;`  'u_salary_1_5_year': salary * 4}`|
+|                   | &nbsp;&nbsp;&nbsp;` }`|
 
 
+| EP_6 | Method: `GET`  |
+| --- | --- | 
+| Endpoint          |`/object_info_4`                                              |
+| Request URL Params| name: `str`                                                   |
+|                   |  age: `int`                                                    |
+|                   | salary: `int`                                                 |
+| Response          | `{ `                                                        |
+|                   | &nbsp;&nbsp;`'name': name,`         |
+|                   | &nbsp;&nbsp;` 'age': int(age),`         |
+|                   | &nbsp;&nbsp;` 'salary': [salary, str(salary * 2), str(salary * 3)]`|
+|                   | &nbsp;` }`|
 
 
 
