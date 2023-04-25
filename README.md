@@ -19,7 +19,7 @@ For all methods this fields are the same: Protocol: `http`, IP: `162.55.220.72`,
 | --- | --- | 
 | 1. Method: `POST` | `{ 'age': age, 'salary': salary, 'family': {'children': [['Alex',24], ['Kate',12]], 'u_salary_1_5_year': salary * 4}}` | 
 | 2. EndPoint: `/user_info_3` | | 
-| 3. request url params: | |
+| 3. request form data:  | |
 | - `name`: str | | 
 | - `age`: int| | | 
 | - `salary`: int| | 
@@ -85,9 +85,24 @@ For all methods this fields are the same: Protocol: `http`, IP: `162.55.220.72`,
 |                   | &nbsp;&nbsp;` 'age': int(age),`         |
 |                   | &nbsp;&nbsp;` 'salary': [salary, str(salary * 2), str(salary * 3)]`|
 |                   | &nbsp;` }`|
-
-
-
+  
+          
+ | EP_7 | Method: `POST`  |
+| --- | --- | 
+| Endpoint          |`/user_info_2`                                              |
+| Request form data| name: `str`                                                   |
+|                   |  age: `int`                                                    |
+|                   | salary: `int`                                                 |
+| Response          | `{ `                                                        |
+|                   | &nbsp;&nbsp;`'start_qa_salary': salary,`         |
+|                   | &nbsp;&nbsp;` 'qa_salary_after_6_months': salary * 2,`         |
+|                   | &nbsp;&nbsp;`   'qa_salary_after_12_months': salary * 2.7,`|
+|                   | &nbsp;&nbsp;`    'qa_salary_after_1.5_year': salary * 3.3,`|
+|                   | &nbsp;&nbsp;`    'qa_salary_after_3.5_years': salary * 3.8,`|
+|                   | &nbsp;&nbsp;`    'person': {'u_name': [user_name, salary, age],`|
+|                   | &nbsp;&nbsp;`   'u_age': age,`|
+|                   | &nbsp;&nbsp;`   'u_salary_5_years': salary * 4.2}`|
+|                   | &nbsp;` }`|
 
 
 
